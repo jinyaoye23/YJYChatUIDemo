@@ -8,9 +8,11 @@
 
 #import "InputView.h"
 
-@interface InputView ()
+@interface InputView ()<UITextViewDelegate>
 
 @property (nonatomic, assign) BOOL    isBeginRecord;
+@property (nonatomic, assign) BOOL    isAbleSendMessage;
+@property (nonatomic, strong) UILabel *placeholdLB;
 
 @end
 
@@ -28,6 +30,7 @@
         //发送消息按钮
         self.btnSendMessage = [UIButton buttonWithType:UIButtonTypeCustom];
         self.btnSendMessage.frame = CGRectMake(SCREEN_WIDTH-40, 5, 30, 30);
+        self.isBeginRecord = NO;
         [self.btnSendMessage setBackgroundImage:[UIImage imageNamed:@"Chat_take_picture"] forState:UIControlStateNormal];
         [self.btnSendMessage addTarget:self action:@selector(sendMessage:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:self.btnSendMessage];
@@ -58,9 +61,19 @@
         
         //输入框
         self.textViewInput = [[UITextView alloc]initWithFrame:CGRectMake(45, 5, SCREEN_WIDTH-2*45, 30)];
-        self.textViewInput.text = @"Input the contents here";
+        self.textViewInput.delegate = self;
         self.textViewInput.textColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.8];
+        self.textViewInput.layer.cornerRadius = 3;
+        self.textViewInput.layer.borderColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.3].CGColor;
+        self.textViewInput.layer.borderWidth = 1;
         [self addSubview:self.textViewInput];
+        
+        self.placeholdLB = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, SCREEN_WIDTH-2*45-20, 30)];
+        self.placeholdLB.text = @"Input the contents here";
+        self.placeholdLB.textColor = [UIColor lightGrayColor];
+        self.placeholdLB.font = [UIFont systemFontOfSize:14];
+        [self.textViewInput addSubview:self.placeholdLB];
+        
         
         //分割线
         self.layer.borderWidth = 1;
@@ -74,33 +87,57 @@
 #pragma mark -- Action -- 
 -(void)beginRecordVoice:(UIButton *)sender
 {
-
+    NSLog(@"begin record");
 }
 -(void)endRecordVoice:(UIButton *)sender
 {
-
+    NSLog(@"end record");
 }
 -(void)cancelRecordVoice:(UIButton *)sender
 {
-    
+    NSLog(@"cancel record");
 }
 -(void)remindDragExit:(UIButton *)sender
 {
-
+    NSLog(@"remind drag Exit");
 }
 -(void)remindDragEnter:(UIButton *)sender
 {
-    
+    NSLog(@"remind drag enter");
 }
 -(void)countVoiceTime
 {
     
 }
+//发送信息图片
 -(void)sendMessage:(UIButton *)sender
 {
-
+    
+    if (self.isAbleSendMessage) {
+        NSLog(@"message:\n%@", self.textViewInput.text);
+        if ([self.delegate respondsToSelector:@selector(inputView:sendMessage:)]) {
+            [self.delegate inputView:self sendMessage:self.textViewInput.text];
+        }
+        self.textViewInput.text = @"";
+    }else{
+        UIAlertController *alertSheet = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+        UIAlertAction *cameraAction = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        UIAlertAction *libraryAction = [UIAlertAction actionWithTitle:@"相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            [self.superVC dismissViewControllerAnimated:YES completion:nil];
+        }];
+        [alertSheet addAction:cameraAction];
+        [alertSheet addAction:libraryAction];
+        [alertSheet addAction:cancelAction];
+        [self.superVC presentViewController:alertSheet animated:YES completion:nil];
+    }
+    
 }
-
+//改变输入文字或录音的状状态
 -(void)voiceRecord:(UIButton *)sender
 {
     self.btnVoiceRecord.hidden = !self.btnVoiceRecord.hidden;
@@ -116,5 +153,33 @@
     
 }
 
+#pragma mark -- UITextViewDelegate --
+-(void)textViewDidBeginEditing:(UITextView *)textView
+{
+    self.placeholdLB.hidden = textView.text.length;
+}
+
+-(void)textViewDidChange:(UITextView *)textView
+{
+    self.placeholdLB.hidden = textView.text.length > 0;
+    [self changeSendButtonWithPhoto:textView.text.length>0?NO:YES];
+}
+-(void)textViewDidEndEditing:(UITextView *)textView{
+    self.placeholdLB.hidden = textView.text.length > 0;
+}
+-(BOOL)textViewShouldEndEditing:(UITextView *)textView{
+    [textView resignFirstResponder];
+    return YES;
+}
+
+-(void)changeSendButtonWithPhoto:(BOOL)isPhoto
+{
+    self.isAbleSendMessage = !isPhoto;
+    [self.btnSendMessage setTitle:isPhoto?@"":@"发送" forState:UIControlStateNormal];
+    self.btnSendMessage.frame = RECT_CHANGE_width(self.btnSendMessage, isPhoto?30:35);
+    self.btnSendMessage.titleLabel.font = [UIFont systemFontOfSize:14];
+    UIImage *image = [UIImage imageNamed:isPhoto?@"Chat_take_picture":@"chat_send_message"];
+    [self.btnSendMessage setBackgroundImage:image forState:UIControlStateNormal];
+}
 
 @end

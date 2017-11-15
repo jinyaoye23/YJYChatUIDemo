@@ -12,7 +12,7 @@
 #import "MessageModel.h"
 #import "InputView.h"
 
-@interface RootViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface RootViewController ()<UITableViewDataSource, UITableViewDelegate, InputViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray *dataArr;
 @property (nonatomic, strong) InputView      *inputView;
@@ -27,10 +27,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self configData];
+    [self configDataWithMessage:@""];
     [self.tableView reloadData];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.inputView = [[InputView alloc]initWithSuperVC:self];
+    self.inputView.delegate = self;
     [self.view addSubview:self.inputView];
 }
 -(void)viewDidAppear:(BOOL)animated{
@@ -55,6 +56,13 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [self.view endEditing:YES];
+}
+
+#pragma mark -- InputViewDelegate --
+-(void)inputView:(InputView *)inputView sendMessage:(NSString *)message{
+    [self configDataWithMessage:message];
+    [self.tableView reloadData];
+    [self scrollToBottom];
 }
 
 #pragma mark -- Notification --
@@ -90,12 +98,13 @@
     [UIView commitAnimations];
 
 }
--(void)configData{
-    self.dataArr = [NSMutableArray array];
+
+#pragma mark -- Private --
+-(void)configDataWithMessage:(NSString *)message{
     NSArray *contentArr = @[@"今天天气好凉爽，出去爬山吧,今天天气好凉爽，出去爬山吧",@"今天天气好凉爽，出去爬山吧,今天天气好凉爽，出去爬山吧",@"窗前明月光，疑似地上霜。举头望明月，低头思故乡",@"你好啊你好啊你好啊你好啊你好啊你好啊你好啊"];
     NSInteger index = arc4random()%contentArr.count;
     MessageModel *model1 = [[MessageModel alloc]init];
-    model1.content = contentArr[index];
+    model1.content = message.length >0 ? message : contentArr[index];
     model1.userType = userTypeMe;
     MessageFrameModel *frameModel1 = [[MessageFrameModel alloc]init];
     frameModel1.messageModel = model1;
@@ -107,11 +116,20 @@
     MessageFrameModel *frameModel2 = [[MessageFrameModel alloc]init];
     frameModel2.messageModel = model2;
     [self.dataArr addObject:frameModel2];
-    
+}
+-(void)scrollToBottom{
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.dataArr.count-1 inSection:0];
+    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
+}
+-(NSMutableArray *)dataArr{
+    if (_dataArr == nil) {
+        _dataArr = [NSMutableArray array];
+    }
+    return _dataArr;
 }
 
 - (void)didReceiveMemoryWarning {
