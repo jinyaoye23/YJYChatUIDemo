@@ -13,8 +13,13 @@
 		2052C0991FB99C9000D0D4D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2052C0971FB99C9000D0D4D4 /* LaunchScreen.storyboard */; };
 		2052C0A41FB99C9000D0D4D4 /* YJYChatUIDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2052C0A31FB99C9000D0D4D4 /* YJYChatUIDemoTests.m */; };
 		2052C0AF1FB99C9000D0D4D4 /* YJYChatUIDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2052C0AE1FB99C9000D0D4D4 /* YJYChatUIDemoUITests.m */; };
-		2052C0BF1FB99D5800D0D4D4 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2052C0BD1FB99D5800D0D4D4 /* RootViewController.m */; };
-		2052C0C01FB99D5800D0D4D4 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2052C0BE1FB99D5800D0D4D4 /* RootViewController.xib */; };
+		2052C0C81FBADCE900D0D4D4 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2052C0C41FBADCE900D0D4D4 /* RootViewController.m */; };
+		2052C0C91FBADCE900D0D4D4 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2052C0C51FBADCE900D0D4D4 /* RootViewController.xib */; };
+		2052C0CC1FBADD4E00D0D4D4 /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2052C0CB1FBADD4E00D0D4D4 /* MessageModel.m */; };
+		2052C0CF1FBADDA100D0D4D4 /* MessageFrameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2052C0CE1FBADDA100D0D4D4 /* MessageFrameModel.m */; };
+		2052C0D31FBADED100D0D4D4 /* ChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2052C0D21FBADED100D0D4D4 /* ChatCell.m */; };
+		2052C0D71FBADF6B00D0D4D4 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2052C0D61FBADF6B00D0D4D4 /* UIImage+Extension.m */; };
+		2052C0DA1FBAE4EC00D0D4D4 /* InputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2052C0D91FBAE4EC00D0D4D4 /* InputView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,9 +53,20 @@
 		2052C0AA1FB99C9000D0D4D4 /* YJYChatUIDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YJYChatUIDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2052C0AE1FB99C9000D0D4D4 /* YJYChatUIDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YJYChatUIDemoUITests.m; sourceTree = "<group>"; };
 		2052C0B01FB99C9000D0D4D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2052C0BC1FB99D5800D0D4D4 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
-		2052C0BD1FB99D5800D0D4D4 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		2052C0BE1FB99D5800D0D4D4 /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
+		2052C0C31FBADCE900D0D4D4 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		2052C0C41FBADCE900D0D4D4 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		2052C0C51FBADCE900D0D4D4 /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
+		2052C0CA1FBADD4E00D0D4D4 /* MessageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageModel.h; sourceTree = "<group>"; };
+		2052C0CB1FBADD4E00D0D4D4 /* MessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageModel.m; sourceTree = "<group>"; };
+		2052C0CD1FBADDA100D0D4D4 /* MessageFrameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageFrameModel.h; sourceTree = "<group>"; };
+		2052C0CE1FBADDA100D0D4D4 /* MessageFrameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageFrameModel.m; sourceTree = "<group>"; };
+		2052C0D01FBADE3C00D0D4D4 /* ChatUIPrefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatUIPrefix.pch; sourceTree = "<group>"; };
+		2052C0D11FBADED100D0D4D4 /* ChatCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatCell.h; sourceTree = "<group>"; };
+		2052C0D21FBADED100D0D4D4 /* ChatCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatCell.m; sourceTree = "<group>"; };
+		2052C0D51FBADF6B00D0D4D4 /* UIImage+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extension.h"; sourceTree = "<group>"; };
+		2052C0D61FBADF6B00D0D4D4 /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
+		2052C0D81FBAE4EC00D0D4D4 /* InputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputView.h; sourceTree = "<group>"; };
+		2052C0D91FBAE4EC00D0D4D4 /* InputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,12 +119,11 @@
 			children = (
 				2052C08C1FB99C9000D0D4D4 /* AppDelegate.h */,
 				2052C08D1FB99C9000D0D4D4 /* AppDelegate.m */,
-				2052C0BC1FB99D5800D0D4D4 /* RootViewController.h */,
-				2052C0BD1FB99D5800D0D4D4 /* RootViewController.m */,
-				2052C0BE1FB99D5800D0D4D4 /* RootViewController.xib */,
 				2052C0951FB99C9000D0D4D4 /* Assets.xcassets */,
 				2052C0971FB99C9000D0D4D4 /* LaunchScreen.storyboard */,
 				2052C09A1FB99C9000D0D4D4 /* Info.plist */,
+				2052C0D01FBADE3C00D0D4D4 /* ChatUIPrefix.pch */,
+				2052C0C11FBADCE900D0D4D4 /* Classes */,
 				2052C0891FB99C9000D0D4D4 /* Supporting Files */,
 			);
 			path = YJYChatUIDemo;
@@ -138,6 +153,58 @@
 				2052C0B01FB99C9000D0D4D4 /* Info.plist */,
 			);
 			path = YJYChatUIDemoUITests;
+			sourceTree = "<group>";
+		};
+		2052C0C11FBADCE900D0D4D4 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				2052C0D41FBADF4D00D0D4D4 /* Category */,
+				2052C0C21FBADCE900D0D4D4 /* Controller */,
+				2052C0C61FBADCE900D0D4D4 /* Model */,
+				2052C0C71FBADCE900D0D4D4 /* View */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		2052C0C21FBADCE900D0D4D4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2052C0C31FBADCE900D0D4D4 /* RootViewController.h */,
+				2052C0C41FBADCE900D0D4D4 /* RootViewController.m */,
+				2052C0C51FBADCE900D0D4D4 /* RootViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2052C0C61FBADCE900D0D4D4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2052C0CA1FBADD4E00D0D4D4 /* MessageModel.h */,
+				2052C0CB1FBADD4E00D0D4D4 /* MessageModel.m */,
+				2052C0CD1FBADDA100D0D4D4 /* MessageFrameModel.h */,
+				2052C0CE1FBADDA100D0D4D4 /* MessageFrameModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2052C0C71FBADCE900D0D4D4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2052C0D11FBADED100D0D4D4 /* ChatCell.h */,
+				2052C0D21FBADED100D0D4D4 /* ChatCell.m */,
+				2052C0D81FBAE4EC00D0D4D4 /* InputView.h */,
+				2052C0D91FBAE4EC00D0D4D4 /* InputView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2052C0D41FBADF4D00D0D4D4 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				2052C0D51FBADF6B00D0D4D4 /* UIImage+Extension.h */,
+				2052C0D61FBADF6B00D0D4D4 /* UIImage+Extension.m */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,7 +316,7 @@
 			files = (
 				2052C0991FB99C9000D0D4D4 /* LaunchScreen.storyboard in Resources */,
 				2052C0961FB99C9000D0D4D4 /* Assets.xcassets in Resources */,
-				2052C0C01FB99D5800D0D4D4 /* RootViewController.xib in Resources */,
+				2052C0C91FBADCE900D0D4D4 /* RootViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,9 +341,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2052C0CF1FBADDA100D0D4D4 /* MessageFrameModel.m in Sources */,
+				2052C0DA1FBAE4EC00D0D4D4 /* InputView.m in Sources */,
+				2052C0D71FBADF6B00D0D4D4 /* UIImage+Extension.m in Sources */,
 				2052C08E1FB99C9000D0D4D4 /* AppDelegate.m in Sources */,
 				2052C08B1FB99C9000D0D4D4 /* main.m in Sources */,
-				2052C0BF1FB99D5800D0D4D4 /* RootViewController.m in Sources */,
+				2052C0D31FBADED100D0D4D4 /* ChatCell.m in Sources */,
+				2052C0C81FBADCE900D0D4D4 /* RootViewController.m in Sources */,
+				2052C0CC1FBADD4E00D0D4D4 /* MessageModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,7 +435,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -405,7 +477,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -418,6 +490,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = PU84N4JU7M;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = /Users/yao/Documents/GitHub/YJYChatUIDemo/YJYChatUIDemo/YJYChatUIDemo/ChatUIPrefix.pch;
 				INFOPLIST_FILE = YJYChatUIDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gzrcwlkj.YJYChatUIDemo;
@@ -430,6 +504,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = PU84N4JU7M;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = /Users/yao/Documents/GitHub/YJYChatUIDemo/YJYChatUIDemo/YJYChatUIDemo/ChatUIPrefix.pch;
 				INFOPLIST_FILE = YJYChatUIDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gzrcwlkj.YJYChatUIDemo;

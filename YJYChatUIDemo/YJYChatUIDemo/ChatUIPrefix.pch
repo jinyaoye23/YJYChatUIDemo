@@ -1,0 +1,20 @@
+//
+//  ChatUIPrefix.pch
+//  YJYChatUIDemo
+//
+//  Created by 叶进耀 on 2017/11/14.
+//  Copyright © 2017年 叶进耀. All rights reserved.
+//
+
+#ifndef ChatUIPrefix_h
+#define ChatUIPrefix_h
+
+
+#define SCREEN_WIDTH   [UIScreen mainScreen].bounds.size.width
+#define SCREEN_HEIGHT  [UIScreen mainScreen].bounds.size.height
+
+
+#import "UIImage+Extension.h"
+
+
+#endif /* ChatUIPrefix_h */
