@@ -20,6 +20,7 @@
 		2052C0D31FBADED100D0D4D4 /* ChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2052C0D21FBADED100D0D4D4 /* ChatCell.m */; };
 		2052C0D71FBADF6B00D0D4D4 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2052C0D61FBADF6B00D0D4D4 /* UIImage+Extension.m */; };
 		2052C0DA1FBAE4EC00D0D4D4 /* InputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2052C0D91FBAE4EC00D0D4D4 /* InputView.m */; };
+		2052C0DD1FBBEFF900D0D4D4 /* YJYImageAvatarBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2052C0DC1FBBEFF900D0D4D4 /* YJYImageAvatarBrowser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,8 @@
 		2052C0D61FBADF6B00D0D4D4 /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
 		2052C0D81FBAE4EC00D0D4D4 /* InputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputView.h; sourceTree = "<group>"; };
 		2052C0D91FBAE4EC00D0D4D4 /* InputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputView.m; sourceTree = "<group>"; };
+		2052C0DB1FBBEFF900D0D4D4 /* YJYImageAvatarBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJYImageAvatarBrowser.h; sourceTree = "<group>"; };
+		2052C0DC1FBBEFF900D0D4D4 /* YJYImageAvatarBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJYImageAvatarBrowser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +161,8 @@
 		2052C0C11FBADCE900D0D4D4 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				2052C0DB1FBBEFF900D0D4D4 /* YJYImageAvatarBrowser.h */,
+				2052C0DC1FBBEFF900D0D4D4 /* YJYImageAvatarBrowser.m */,
 				2052C0D41FBADF4D00D0D4D4 /* Category */,
 				2052C0C21FBADCE900D0D4D4 /* Controller */,
 				2052C0C61FBADCE900D0D4D4 /* Model */,
@@ -345,6 +350,7 @@
 				2052C0DA1FBAE4EC00D0D4D4 /* InputView.m in Sources */,
 				2052C0D71FBADF6B00D0D4D4 /* UIImage+Extension.m in Sources */,
 				2052C08E1FB99C9000D0D4D4 /* AppDelegate.m in Sources */,
+				2052C0DD1FBBEFF900D0D4D4 /* YJYImageAvatarBrowser.m in Sources */,
 				2052C08B1FB99C9000D0D4D4 /* main.m in Sources */,
 				2052C0D31FBADED100D0D4D4 /* ChatCell.m in Sources */,
 				2052C0C81FBADCE900D0D4D4 /* RootViewController.m in Sources */,

@@ -8,7 +8,7 @@
 
 #import "InputView.h"
 
-@interface InputView ()<UITextViewDelegate>
+@interface InputView ()<UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic, assign) BOOL    isBeginRecord;
 @property (nonatomic, assign) BOOL    isAbleSendMessage;
@@ -85,6 +85,7 @@
 }
 
 #pragma mark -- Action -- 
+//录音按钮的点击事件
 -(void)beginRecordVoice:(UIButton *)sender
 {
     NSLog(@"begin record");
@@ -120,20 +121,7 @@
         }
         self.textViewInput.text = @"";
     }else{
-        UIAlertController *alertSheet = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-        UIAlertAction *cameraAction = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            
-        }];
-        UIAlertAction *libraryAction = [UIAlertAction actionWithTitle:@"相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            
-        }];
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-            [self.superVC dismissViewControllerAnimated:YES completion:nil];
-        }];
-        [alertSheet addAction:cameraAction];
-        [alertSheet addAction:libraryAction];
-        [alertSheet addAction:cancelAction];
-        [self.superVC presentViewController:alertSheet animated:YES completion:nil];
+        [self selectionPictureAction];
     }
     
 }
@@ -172,6 +160,7 @@
     return YES;
 }
 
+//切换发送文字和发送图片的按钮样式
 -(void)changeSendButtonWithPhoto:(BOOL)isPhoto
 {
     self.isAbleSendMessage = !isPhoto;
@@ -180,6 +169,59 @@
     self.btnSendMessage.titleLabel.font = [UIFont systemFontOfSize:14];
     UIImage *image = [UIImage imageNamed:isPhoto?@"Chat_take_picture":@"chat_send_message"];
     [self.btnSendMessage setBackgroundImage:image forState:UIControlStateNormal];
+}
+
+-(void)selectionPictureAction{
+    UIAlertController *alertSheet = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *cameraAction = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self addFromCamera];
+    }];
+    UIAlertAction *libraryAction = [UIAlertAction actionWithTitle:@"相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self addFromLibrary];
+    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        [self.superVC dismissViewControllerAnimated:YES completion:nil];
+    }];
+    [alertSheet addAction:cameraAction];
+    [alertSheet addAction:libraryAction];
+    [alertSheet addAction:cancelAction];
+    [self.superVC presentViewController:alertSheet animated:YES completion:nil];
+
+}
+-(void)addFromCamera
+{
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        UIImagePickerController *pickerController = [[UIImagePickerController alloc]init];
+        pickerController.delegate = self;
+        pickerController.allowsEditing = YES;
+        pickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+        [self.superVC presentViewController:pickerController animated:YES completion:nil];
+    }else{
+    
+    }
+}
+-(void)addFromLibrary
+{
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+        UIImagePickerController *pickerController = [[UIImagePickerController alloc]init];
+        pickerController.delegate = self;
+        pickerController.allowsEditing = YES;
+        pickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        [self.superVC presentViewController:pickerController animated:YES completion:nil];
+    }else{
+        
+    }
+}
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
+{
+    UIImage *editImage = [info objectForKey:UIImagePickerControllerEditedImage];
+//    UIImage *originalImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+    [self.superVC dismissViewControllerAnimated:YES completion:^{
+        if ([self.delegate respondsToSelector:@selector(inputView:sendPicture:)]) {
+            [self.delegate inputView:self sendPicture:editImage];
+        }
+    }];
+    NSLog(@"image:\n%@", info);
 }
 
 @end

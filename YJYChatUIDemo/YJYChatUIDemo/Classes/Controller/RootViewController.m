@@ -47,6 +47,7 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     ChatCell *cell = [ChatCell createCellWithTableView:tableView];
     cell.frameModel = self.dataArr[indexPath.row];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
@@ -63,6 +64,18 @@
     [self configDataWithMessage:message];
     [self.tableView reloadData];
     [self scrollToBottom];
+}
+-(void)inputView:(InputView *)inputView sendPicture:(UIImage *)image{
+    MessageModel *model1 = [[MessageModel alloc]init];
+    model1.picture = image;
+    model1.userType = userTypeMe;
+    model1.messageType = MessageTypePicture;
+    MessageFrameModel *frameModel1 = [[MessageFrameModel alloc]init];
+    frameModel1.messageModel = model1;
+    [self.dataArr addObject:frameModel1];
+    [self.tableView reloadData];
+    [self scrollToBottom];
+
 }
 
 #pragma mark -- Notification --

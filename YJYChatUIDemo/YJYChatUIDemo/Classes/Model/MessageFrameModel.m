@@ -51,7 +51,7 @@
     }
     
     if (_messageModel.userType == userTypeMe) {
-        airViewX = iconX - airViewSize.width  - ChatContentRight-ChatContentLet;
+        airViewX = iconX - airViewSize.width -ChatContentLet;
         contentX = airViewX+ChatContentRight;
     }
     _contentFrame = CGRectMake(contentX, contentY, contentSize.width, contentSize.height);

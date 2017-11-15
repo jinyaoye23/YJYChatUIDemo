@@ -24,6 +24,8 @@ typedef NS_ENUM(NSUInteger, MessageType) {
 @property (nonatomic, strong) NSString *userName;
 @property (nonatomic, strong) NSString *content;
 
+@property (nonatomic, strong) UIImage  *picture;
+
 @property (nonatomic, assign) UserType userType;
 @property (nonatomic, assign) MessageType messageType;
 @end

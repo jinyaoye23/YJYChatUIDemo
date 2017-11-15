@@ -9,13 +9,15 @@
 #import "ChatCell.h"
 #import "MessageModel.h"
 #import "MessageFrameModel.h"
+#import "YJYImageAvatarBrowser.h"
 
 @interface ChatCell ()
 
 @property (nonatomic, strong) UIImageView *iconIV;
-@property (nonatomic, strong) UILabel *contentLB;
-@property (nonatomic, strong) UILabel *messageLB;
 @property (nonatomic, strong) UIImageView *airIV;
+@property (nonatomic, strong) UIImageView *pictureIV;
+@property (nonatomic, strong) UILabel     *contentLB;
+@property (nonatomic, strong) UILabel     *messageLB;
 
 
 @end
@@ -27,6 +29,7 @@
         [self.contentView addSubview:self.iconIV];
         [self.contentView addSubview:self.airIV];
         [self.contentView addSubview:self.contentLB];
+        [self.airIV addSubview:self.pictureIV];
     }
     return self;
 }
@@ -50,7 +53,24 @@
     self.iconIV.frame = frameModel.iconFrame;
     self.contentLB.frame = frameModel.contentFrame;
     self.contentLB.text = frameModel.messageModel.content;
-    self.airIV.image = frameModel.messageModel.userType ? [UIImage strechableImage:@"chat_send_nor"] : [UIImage strechableImage:@"chat_receive_nor_p"];
+    UIImage *airImage = frameModel.messageModel.userType ? [UIImage strechableImage:@"chat_send_nor"] : [UIImage strechableImage:@"chat_receive_nor_p"];
+    switch (frameModel.messageModel.messageType) {
+        case MessageTypeText:
+            self.airIV.image = airImage;
+            break;
+        case MessageTypePicture:
+            self.airIV.image = airImage;
+            self.pictureIV.image = frameModel.messageModel.picture;
+            self.pictureIV.hidden = NO;
+            self.pictureIV.frame = CGRectMake(0, 0, frameModel.airViewFrame.size.width, frameModel.airViewFrame.size.height);
+            [self makeMaskView:self.pictureIV withImage:airImage];
+            break;
+        case MessageTypeVoice:
+            self.airIV.image = airImage;
+            break;
+        default:
+            break;
+    }
     self.airIV.frame = frameModel.airViewFrame;
 }
 
@@ -87,10 +107,30 @@
 -(UIImageView *)airIV{
     if (_airIV == nil) {
         _airIV = [[UIImageView alloc]init];
+        _airIV.userInteractionEnabled = YES;
     }
     return _airIV;
 }
-
+-(UIImageView *)pictureIV{
+    if (_pictureIV == nil) {
+        _pictureIV = [[UIImageView alloc]init];
+        _pictureIV.hidden = YES;
+        _pictureIV.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onTap:)];
+        [_pictureIV addGestureRecognizer:tap];
+    }
+    return _pictureIV;
+}
+-(void)onTap:(UITapGestureRecognizer *)tap
+{
+    [YJYImageAvatarBrowser showImage:(UIImageView *)tap.view];
+}
+- (void)makeMaskView:(UIView *)view withImage:(UIImage *)image
+{
+    UIImageView *imageViewMask = [[UIImageView alloc] initWithImage:image];
+    imageViewMask.frame = CGRectInset(view.frame, 0.0f, 0.0f);
+    view.layer.mask = imageViewMask.layer;
+}
 
 
 - (void)awakeFromNib {
