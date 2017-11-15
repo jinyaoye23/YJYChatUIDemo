@@ -22,6 +22,8 @@
 		2052C0DA1FBAE4EC00D0D4D4 /* InputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2052C0D91FBAE4EC00D0D4D4 /* InputView.m */; };
 		2052C0DD1FBBEFF900D0D4D4 /* YJYImageAvatarBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2052C0DC1FBBEFF900D0D4D4 /* YJYImageAvatarBrowser.m */; };
 		2052C0E01FBBF25D00D0D4D4 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2052C0DF1FBBF25D00D0D4D4 /* ProgressHUD.m */; };
+		2052C0E71FBC175800D0D4D4 /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2052C0E41FBC175800D0D4D4 /* libmp3lame.a */; };
+		2052C0E81FBC175800D0D4D4 /* Mp3Recorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 2052C0E61FBC175800D0D4D4 /* Mp3Recorder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,10 @@
 		2052C0DC1FBBEFF900D0D4D4 /* YJYImageAvatarBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJYImageAvatarBrowser.m; sourceTree = "<group>"; };
 		2052C0DE1FBBF25D00D0D4D4 /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
 		2052C0DF1FBBF25D00D0D4D4 /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
+		2052C0E31FBC175800D0D4D4 /* lame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lame.h; sourceTree = "<group>"; };
+		2052C0E41FBC175800D0D4D4 /* libmp3lame.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmp3lame.a; sourceTree = "<group>"; };
+		2052C0E51FBC175800D0D4D4 /* Mp3Recorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mp3Recorder.h; sourceTree = "<group>"; };
+		2052C0E61FBC175800D0D4D4 /* Mp3Recorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mp3Recorder.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2052C0E71FBC175800D0D4D4 /* libmp3lame.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,6 +171,7 @@
 		2052C0C11FBADCE900D0D4D4 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				2052C0E11FBC168600D0D4D4 /* Libs */,
 				2052C0DB1FBBEFF900D0D4D4 /* YJYImageAvatarBrowser.h */,
 				2052C0DC1FBBEFF900D0D4D4 /* YJYImageAvatarBrowser.m */,
 				2052C0D41FBADF4D00D0D4D4 /* Category */,
@@ -215,6 +223,25 @@
 				2052C0D61FBADF6B00D0D4D4 /* UIImage+Extension.m */,
 			);
 			path = Category;
+			sourceTree = "<group>";
+		};
+		2052C0E11FBC168600D0D4D4 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				2052C0E21FBC175800D0D4D4 /* VoiceLib */,
+			);
+			path = Libs;
+			sourceTree = "<group>";
+		};
+		2052C0E21FBC175800D0D4D4 /* VoiceLib */ = {
+			isa = PBXGroup;
+			children = (
+				2052C0E31FBC175800D0D4D4 /* lame.h */,
+				2052C0E41FBC175800D0D4D4 /* libmp3lame.a */,
+				2052C0E51FBC175800D0D4D4 /* Mp3Recorder.h */,
+				2052C0E61FBC175800D0D4D4 /* Mp3Recorder.m */,
+			);
+			path = VoiceLib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -355,6 +382,7 @@
 				2052C0DA1FBAE4EC00D0D4D4 /* InputView.m in Sources */,
 				2052C0E01FBBF25D00D0D4D4 /* ProgressHUD.m in Sources */,
 				2052C0D71FBADF6B00D0D4D4 /* UIImage+Extension.m in Sources */,
+				2052C0E81FBC175800D0D4D4 /* Mp3Recorder.m in Sources */,
 				2052C08E1FB99C9000D0D4D4 /* AppDelegate.m in Sources */,
 				2052C0DD1FBBEFF900D0D4D4 /* YJYImageAvatarBrowser.m in Sources */,
 				2052C08B1FB99C9000D0D4D4 /* main.m in Sources */,
@@ -506,6 +534,10 @@
 				GCC_PREFIX_HEADER = /Users/yao/Documents/GitHub/YJYChatUIDemo/YJYChatUIDemo/YJYChatUIDemo/ChatUIPrefix.pch;
 				INFOPLIST_FILE = YJYChatUIDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/YJYChatUIDemo/Classes/Libs/VoiceLib",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gzrcwlkj.YJYChatUIDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -520,6 +552,10 @@
 				GCC_PREFIX_HEADER = /Users/yao/Documents/GitHub/YJYChatUIDemo/YJYChatUIDemo/YJYChatUIDemo/ChatUIPrefix.pch;
 				INFOPLIST_FILE = YJYChatUIDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/YJYChatUIDemo/Classes/Libs/VoiceLib",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gzrcwlkj.YJYChatUIDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
