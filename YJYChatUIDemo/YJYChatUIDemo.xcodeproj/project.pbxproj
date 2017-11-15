@@ -21,6 +21,7 @@
 		2052C0D71FBADF6B00D0D4D4 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2052C0D61FBADF6B00D0D4D4 /* UIImage+Extension.m */; };
 		2052C0DA1FBAE4EC00D0D4D4 /* InputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2052C0D91FBAE4EC00D0D4D4 /* InputView.m */; };
 		2052C0DD1FBBEFF900D0D4D4 /* YJYImageAvatarBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2052C0DC1FBBEFF900D0D4D4 /* YJYImageAvatarBrowser.m */; };
+		2052C0E01FBBF25D00D0D4D4 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2052C0DF1FBBF25D00D0D4D4 /* ProgressHUD.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,8 @@
 		2052C0D91FBAE4EC00D0D4D4 /* InputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputView.m; sourceTree = "<group>"; };
 		2052C0DB1FBBEFF900D0D4D4 /* YJYImageAvatarBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJYImageAvatarBrowser.h; sourceTree = "<group>"; };
 		2052C0DC1FBBEFF900D0D4D4 /* YJYImageAvatarBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJYImageAvatarBrowser.m; sourceTree = "<group>"; };
+		2052C0DE1FBBF25D00D0D4D4 /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
+		2052C0DF1FBBF25D00D0D4D4 /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +202,8 @@
 				2052C0D21FBADED100D0D4D4 /* ChatCell.m */,
 				2052C0D81FBAE4EC00D0D4D4 /* InputView.h */,
 				2052C0D91FBAE4EC00D0D4D4 /* InputView.m */,
+				2052C0DE1FBBF25D00D0D4D4 /* ProgressHUD.h */,
+				2052C0DF1FBBF25D00D0D4D4 /* ProgressHUD.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -348,6 +353,7 @@
 			files = (
 				2052C0CF1FBADDA100D0D4D4 /* MessageFrameModel.m in Sources */,
 				2052C0DA1FBAE4EC00D0D4D4 /* InputView.m in Sources */,
+				2052C0E01FBBF25D00D0D4D4 /* ProgressHUD.m in Sources */,
 				2052C0D71FBADF6B00D0D4D4 /* UIImage+Extension.m in Sources */,
 				2052C08E1FB99C9000D0D4D4 /* AppDelegate.m in Sources */,
 				2052C0DD1FBBEFF900D0D4D4 /* YJYImageAvatarBrowser.m in Sources */,

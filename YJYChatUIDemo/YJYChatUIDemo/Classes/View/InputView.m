@@ -7,6 +7,7 @@
 //
 
 #import "InputView.h"
+#import "ProgressHUD.h"
 
 @interface InputView ()<UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -89,18 +90,22 @@
 -(void)beginRecordVoice:(UIButton *)sender
 {
     NSLog(@"begin record");
+    [ProgressHUD show];
 }
 -(void)endRecordVoice:(UIButton *)sender
 {
     NSLog(@"end record");
+    [ProgressHUD dismissWithError:@"End"];
 }
 -(void)cancelRecordVoice:(UIButton *)sender
 {
     NSLog(@"cancel record");
+    [ProgressHUD dismissWithError:@"Cancel"];
 }
 -(void)remindDragExit:(UIButton *)sender
 {
     NSLog(@"remind drag Exit");
+//    [ProgressHUD ]
 }
 -(void)remindDragEnter:(UIButton *)sender
 {
